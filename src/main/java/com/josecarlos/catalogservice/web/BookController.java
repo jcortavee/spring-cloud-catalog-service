@@ -3,12 +3,18 @@ package com.josecarlos.catalogservice.web;
 import com.josecarlos.catalogservice.domain.Book;
 import com.josecarlos.catalogservice.domain.BookService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/books")
 public class BookController {
+
+    @Value("${server.port}")
+    private String serverPort;
 
     private final BookService bookService;
 
